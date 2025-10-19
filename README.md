@@ -1,32 +1,24 @@
-# Cafe With Dogs
+# README
 
-## 概要
-このアプリは、愛犬と一緒に楽しめる飲食店の口コミを投稿・検索できるWebアプリケーションです。ユーザーは、訪れた店、感想、写真で口コミを投稿し、他のユーザーと情報を交換することができます。
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-## サイトテーマ
-おいしいも、一緒がいい。
+Things you may want to cover:
 
-### テーマを選んだ理由
-犬と一緒に入れる飲食店の情報交換を簡単に行える場があればよいと思ったからです。
+* Ruby version
 
-#### 【きっかけ】
-愛犬と一緒にでかけていた際、愛犬と一緒に入れる店が分からず、店探しに苦労したことがありました。これを解決できる場を作りたいと思ったのがきっかけです。
+* System dependencies
 
-#### 【問題点】
-・情報が個人のSNSやブログに分散しており、検索しづらい   
-・犬と一緒に行ける店をまとめたブログはあるが、自分が行きたいエリアに絞って探すのが困難  
-・店内OKなのか、テラスのみOKなのかよく分からない  
-・犬のサイズや犬種によって入店可否が異なる情報が記載されていないことが多い  
-・犬用メニューの有無やリードフックの有無など、店の受け入れ体制が分からないことが多い  
+* Configuration
 
-#### 【解決策】
-・犬と一緒に行ける飲食店に特化した投稿システムを提供  
-・エリアや飲食店のジャンルに絞って検索できる機能  
+* Database creation
 
-## ターゲットユーザー
-・犬と一緒に行ける飲食店を探している人  
-・行った店の記録を残したい人  
+* Database initialization
 
-## 主な利用シーン
-・犬とおでかけして、一緒に入れる飲食店を探すとき  
-・お気に入りの店をシェアするとき  
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
