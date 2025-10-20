@@ -1,0 +1,28 @@
+class ShopsController < ApplicationController
+
+  before_action :authenticate_user!
+  def new
+    @shop = Shop.new
+  end
+
+  def create
+    @shop = current_user.shops.build(shop_params)
+
+    if @shop.save
+      redirect_to root_path, notice: "お店を登録しました！"
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def shop_params
+    params.require(:shop).permit(
+      :name, 
+      :address, 
+      :block_id,
+      :genre_id
+    )
+  end
+end
