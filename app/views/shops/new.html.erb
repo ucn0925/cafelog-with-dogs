@@ -1,2 +1,32 @@
-<h1>Shops#new</h1>
-<p>Find me in app/views/shops/new.html.erb</p>
+<h1>店舗登録</h1>
+<%= form_with model: @shop, local: true do |f| %>
+    <div>
+      <%= f.label :name, "店名" %><br>
+      <%= f.text_field :name %>
+    </div>
+
+    <div>
+      <%= f.label :address, "住所" %><br>
+      <%= f.text_field :address %>
+    </div>
+
+    <div>
+      <%= f.label :genre_id, "ジャンルID" %><br>
+      <%= f.number_field :genre_id %>
+    </div>
+
+    <div>
+      <%= f.label :block_id, "地域ブロックID" %><br>
+      <%= f.number_field :block_id %>
+    </div>
+
+    <div>
+      <%= f.label :block_id, "地域ブロックID" %><br>
+      <%= f.number_field :block_id %>
+    </div>
+
+    <div>
+      <%= f.submit "登録する" %>
+    </div>
+<% end %>
+

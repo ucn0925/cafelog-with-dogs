@@ -9,7 +9,7 @@ class ShopsController < ApplicationController
     @shop = current_user.shops.build(shop_params)
 
     if @shop.save
-      redirect_to root_path, notice: "お店を登録しました！"
+      redirect_to new_shop_path, notice: "お店を登録しました！"
     else
       render :new, status: :unprocessable_entity
     end
@@ -18,11 +18,6 @@ class ShopsController < ApplicationController
   private
 
   def shop_params
-    params.require(:shop).permit(
-      :name, 
-      :address, 
-      :block_id,
-      :genre_id
-    )
+    params.require(:shop).permit(:name, :address, :block_id, :genre_id)
   end
 end
