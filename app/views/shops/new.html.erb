@@ -11,8 +11,8 @@
     </div>
 
     <div>
-      <%= f.label :genre_id, "ジャンルID" %><br>
-      <%= f.number_field :genre_id %>
+      <%= f.label :genre_id, "ジャンル" %><br>
+      <%= f.collection_select :genre_id, Genre.all, :id, :name, prompt: "ジャンルを選択してください" %>
     </div>
 
     <div>

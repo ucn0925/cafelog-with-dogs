@@ -7,3 +7,15 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+Genre.create([
+    { name: "カフェ"},
+    { name: "パン"},
+    { name: "洋食"},
+    { name: "イタリアン"},
+    { name: "フレンチ"},
+    { name: "ハンバーガー"},
+    { name: "カレー"},
+    { name: "中華"},
+    { name: "エスニック"},
+    { name: "和食"}
+])

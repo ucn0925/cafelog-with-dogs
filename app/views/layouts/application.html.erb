@@ -12,13 +12,17 @@
 
   <body>
     <% if notice %>
-      <p style="color: green;"><%= notice %></p>
+      <div style= "background-color: #e6ffed; color: #056608; border: 1px solid #a3d9a5; padding: 10px; margin: 10px 0; border-radius: 8px;">
+        <%= notice %>
+      </div>
     <% end %>
 
     <% if alert %>
-      <p style="color: red;"><%= alert %></p>
+      <div style= "background-color: #ffe6e6; color: #8a0b0b; border: 1px solid #f3b6b6; padding: 10px; margin:10px 0; border-radius: 8px;">
+        <%= alert %>
+      </div>
     <% end %>
-
     <%= yield %>
-  </body>
+      
+    </body>
 </html>
