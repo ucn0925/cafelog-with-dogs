@@ -24,6 +24,19 @@ class ShopsController < ApplicationController
     end
   end
 
+  def edit
+    @shop = Shop.find(params[:id])
+  end
+
+  def update
+    @shop = Shop.find(params[:id])
+    if @shop.update(shop_params)
+      redirect_to @shop, notice: "店鋪情報を更新しました！"
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def shop_params
