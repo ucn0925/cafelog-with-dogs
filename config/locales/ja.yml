@@ -1,0 +1,13 @@
+ja:
+  activerecord:
+    models:
+      shop: 店舗
+      genre: ジャンル
+    attributes:
+      shop:
+        name: 店名
+        address: 住所
+        genre_id: ジャンル
+    errors:
+      messages:
+        blank: "を入力してください"

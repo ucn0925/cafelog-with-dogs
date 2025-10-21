@@ -1,6 +1,6 @@
 <h1><%= @shop.name %></h1>
 <p>住所：<%= @shop.address %></p>
-<p>ジャンル：<%= @shop.genre.name if @shop.genre %></p>
+<p>ジャンル：<%= @shop.genre.name %></p>
 
 <%= link_to "編集する", edit_shop_path %>
 <%= link_to "一覧に戻る", shops_path(@shop) %>
