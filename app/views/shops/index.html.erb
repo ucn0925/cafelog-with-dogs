@@ -1,0 +1,10 @@
+<h1>店鋪一覧</h1>
+
+<% @shops.each do |shop| %>
+    <div>
+      <h2><%= link_to shop.name, shop_path(shop) %></h2>
+      <p><%= shop.address %></p>
+    </div>
+<% end %>
+
+<%= link_to "新しい店鋪を登録する", new_shop_path %>
