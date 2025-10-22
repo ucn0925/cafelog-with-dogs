@@ -4,6 +4,14 @@ class ShopsController < ApplicationController
 
   def index
     @shops = Shop.all
+
+    if params[:keyword].present?
+      @shops = @shops.where("shops.name LIKE ?", "%#{params[:keyword]}%")
+    end
+
+    if params[:genre_id].present?
+      @shops = @shops.where(genre_id: params[:genre_id])
+    end
   end
 
   def show

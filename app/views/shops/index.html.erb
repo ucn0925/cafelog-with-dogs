@@ -1,10 +1,31 @@
 <h1>店鋪一覧</h1>
 
-<% @shops.each do |shop| %>
-    <div>
-      <h2><%= link_to shop.name, shop_path(shop) %></h2>
-      <p><%= shop.address %></p>
-    </div>
+<%= form_with url: shops_path, method: :get, local: true do %>
+  <div>
+    <%= text_field_tag :keyword, params[:keyword], placeholder: "店名で検索" %>
+  </div>
+
+  <div style= "margin-top: 8px;">
+    <%= select_tag :genre_id, options_from_collection_for_select(Genre.all, :id, :name, params[:genre_id]), include_blank: "ジャンルを選択" %>
+  </div>
+
+  <div style= "margin-top: 10px;">
+    <%= submit_tag "検索" %>
+  </div>
 <% end %>
+
+<hr>
+
+<% if params[:keyword].present? || params[:genre_id].present? %>
+  <p>検索結果：</p>
+<% end %>
+
+<% @shops.each do |shop| %>
+  <div style= "margin-bottom: 16px;">
+    <h2><%= link_to shop.name, shop_path(shop) %></h2>
+    <p><%= shop.address %></p>
+    <p><%= shop.genre.name %> ／ <%= shop.block.name %></p>
+  </div>
+<% end %>    
 
 <%= link_to "新しい店鋪を登録する", new_shop_path %>
