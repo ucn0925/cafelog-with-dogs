@@ -29,12 +29,7 @@
 
     <div>
       <%= f.label :block_id, "地域ブロックID" %><br>
-      <%= f.number_field :block_id %>
-    </div>
-
-    <div>
-      <%= f.label :block_id, "地域ブロックID" %><br>
-      <%= f.number_field :block_id %>
+      <%= f.collection_select :block_id, Block.all, :id, :name, prompt: "エリアを選択してください" %>
     </div>
 
     <div>

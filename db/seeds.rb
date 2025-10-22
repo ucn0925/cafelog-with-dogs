@@ -19,3 +19,13 @@ Genre.create([
     { name: "エスニック"},
     { name: "和食"}
 ])
+
+Block.create([
+    { name: "甲府・昭和"},
+    { name: "甲斐・中央"},
+    { name: "北杜・韮崎"},
+    { name: "南アルプス"},
+    { name: "峡南"},
+    { name: "富士五湖"},
+    { name: "都留・大月"}
+])

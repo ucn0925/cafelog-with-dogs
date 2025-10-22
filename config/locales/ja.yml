@@ -8,6 +8,7 @@ ja:
         name: 店名
         address: 住所
         genre_id: ジャンル
+        block_id: エリア
     errors:
       messages:
         blank: "を入力してください"
