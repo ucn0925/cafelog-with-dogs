@@ -2,6 +2,7 @@ class Shop < ApplicationRecord
   belongs_to :user
   belongs_to :genre, optional: true
   belongs_to :block, optional: true
+  belongs_to :city, optional: true
 
   validates :name, presence: true
   validates :address, presence: true

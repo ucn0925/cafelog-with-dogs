@@ -10,11 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_10_22_000639) do
+ActiveRecord::Schema[7.1].define(version: 2025_10_23_020407) do
   create_table "blocks", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "cities", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "block_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["block_id"], name: "index_cities_on_block_id"
   end
 
   create_table "genres", force: :cascade do |t|
@@ -31,6 +39,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_10_22_000639) do
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "city_id", null: false
+    t.index ["city_id"], name: "index_shops_on_city_id"
     t.index ["user_id"], name: "index_shops_on_user_id"
   end
 
@@ -46,5 +56,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_10_22_000639) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cities", "blocks"
+  add_foreign_key "shops", "cities"
   add_foreign_key "shops", "users"
 end
