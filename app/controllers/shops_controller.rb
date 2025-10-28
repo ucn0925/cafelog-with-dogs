@@ -4,13 +4,32 @@ class ShopsController < ApplicationController
 
   def index
     @shops = Shop.all
+    @area_options = []
+
+    Block.all.each do |block|
+      @area_options << [block.name, "block_#{block.id}"]
+
+      block.cities.each do |city|
+        @area_options << [" ├ #{city.name}", "city_#{city.id}"]
+      end
+    end
 
     if params[:keyword].present?
-      @shops = @shops.where("shops.name LIKE ?", "%#{params[:keyword]}%")
+      @shops = @shops.where("name LIKE ?", "%#{params[:keyword]}%")
     end
 
     if params[:genre_id].present?
       @shops = @shops.where(genre_id: params[:genre_id])
+    end
+
+    if params[:area_id].present?
+      type, id = params[:area_id].split('_')
+
+      if type == "block"
+        @shops = @shops.joins(:city).where(cities: { block_id: id})
+      elsif type == "city"
+        @shops = @shops.where(city_id: id)
+      end
     end
   end
 
@@ -54,6 +73,6 @@ class ShopsController < ApplicationController
   private
 
   def shop_params
-    params.require(:shop).permit(:name, :address, :genre_id, :block_id)
+    params.require(:shop).permit(:name, :address, :genre_id, :city_id, :block_id)
   end
 end

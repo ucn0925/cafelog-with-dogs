@@ -33,6 +33,11 @@
     </div>
 
     <div>
+      <%= f.label :city_id, "市町村" %><br>
+      <%= f.collection_select :city_id, City.all, :id, :name, prompt: "市町村を選択してください" %>
+    </div>
+
+    <div>
       <%= f.submit "登録する" %>
     </div>
 <% end %>
