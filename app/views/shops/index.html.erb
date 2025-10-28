@@ -20,8 +20,12 @@
 
 <hr>
 
-<% if params[:keyword].present? || params[:genre_id].present? %>
-  <p>検索結果：</p>
+<% if params[:keyword].present? || params[:genre_id].present? || params[:area_id].present? %>
+  <div style= "margin-top: 10px;">
+    <p>検索結果：<%= @shops.count %>件</p>
+    <%= link_to "検索条件をリセット", shops_path, style: "text-decoration: underline; color: gray;" %>
+  </div>
+  <hr>
 <% end %>
 
 <% @shops.each do |shop| %>
