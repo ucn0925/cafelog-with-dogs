@@ -1,0 +1,13 @@
+<h1><%= @user.email %>さんのお気に入り一覧</h1>
+
+<% if @favorite_shops.any? %>
+  <ul>
+    <% @favorite_shops.each do |shop| %>
+        <li>
+          <%= link_to shop.name, shop_path(shop) %>
+        </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>お気に入り登録された店舗はまだありません。</p>
+<% end %>

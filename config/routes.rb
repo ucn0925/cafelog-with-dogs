@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
+  get 'users/favorites'
   
   devise_for :users
+  
+  resources :users, only: [] do
+    get :favorites, on: :member
+  end
 
   resources :shops, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
     resource :shop_favorite, only: [:create, :destroy]

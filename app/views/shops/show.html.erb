@@ -4,9 +4,15 @@
 
 <% if user_signed_in? %>
   <% if current_user.shop_favorites.exists?(shop_id: @shop.id) %>
-    <%= button_to "♡ お気に入り解除", shop_shop_favorite_path(@shop), method: :delete, class: "btn btn-outline-danger" %>
+    <%= link_to "♡ お気に入り解除", 
+        shop_shop_favorite_path(@shop), 
+        data: { turbo_method: :delete, turbo_confirm: "お気に入りを解除しますか？" },
+        class: "btn btn-outline-danger" %>
   <% else %>
-    <%= button_to "♡ お気に入り登録", shop_shop_favorite_path(@shop), method: :post, class: "btn btn-outline-primary" %>
+    <%= link_to "♡ お気に入り登録", 
+        shop_shop_favorite_path(@shop), 
+        data: { turbo_method: :post },
+        class: "btn btn-outline-primary" %>
   <% end %>
 <% end %>
 
