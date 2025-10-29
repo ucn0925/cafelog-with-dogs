@@ -2,6 +2,14 @@
 <p>住所：<%= @shop.address %></p>
 <p>ジャンル：<%= @shop.genre.name %></p>
 
+<% if user_signed_in? %>
+  <% if current_user.shop_favorites.exists?(shop_id: @shop.id) %>
+    <%= button_to "♡ お気に入り解除", shop_shop_favorite_path(@shop), method: :delete, class: "btn btn-outline-danger" %>
+  <% else %>
+    <%= button_to "♡ お気に入り登録", shop_shop_favorite_path(@shop), method: :post, class: "btn btn-outline-primary" %>
+  <% end %>
+<% end %>
+
 <%= link_to "編集する", edit_shop_path %>
 <%= link_to "一覧に戻る", shops_path(@shop) %>
 <%= link_to "削除する", shop_path(@shop), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？"} %>
