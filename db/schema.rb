@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_10_23_020407) do
+ActiveRecord::Schema[7.1].define(version: 2025_10_29_012601) do
   create_table "blocks", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -29,6 +29,15 @@ ActiveRecord::Schema[7.1].define(version: 2025_10_23_020407) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "shop_favorites", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "shop_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shop_id"], name: "index_shop_favorites_on_shop_id"
+    t.index ["user_id"], name: "index_shop_favorites_on_user_id"
   end
 
   create_table "shops", force: :cascade do |t|
@@ -57,6 +66,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_10_23_020407) do
   end
 
   add_foreign_key "cities", "blocks"
+  add_foreign_key "shop_favorites", "shops"
+  add_foreign_key "shop_favorites", "users"
   add_foreign_key "shops", "cities"
   add_foreign_key "shops", "users"
 end

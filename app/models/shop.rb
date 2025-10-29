@@ -4,6 +4,9 @@ class Shop < ApplicationRecord
   belongs_to :block, optional: true
   belongs_to :city, optional: true
 
+  has_many :shop_favorites, dependent: :destroy
+  has_many :favorited_users, through: :shop_favorites, source: :user
+
   validates :name, presence: true
   validates :address, presence: true
   validates :genre_id, presence: true
