@@ -21,6 +21,21 @@ class CommentsController < ApplicationController
     end
   end
 
+  def edit
+    @shop = Shop.find(params[:shop_id])
+    @comment = @shop.comments.find(params[:id])
+  end
+
+  def update
+    @shop = Shop.find(params[:shop_id])
+    @comment = @shop.comments.find(params[:id])
+    if @comment.update(comment_params)
+      redirect_to shop_path(@shop), notice: "コメントを更新しました"
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def comment_params

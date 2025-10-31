@@ -1,0 +1,10 @@
+<h3>コメントを編集する</h3>
+
+<%= form_with(model: [@shop, @comment], local: true) do |f| %>
+    <div>
+      <%= f.text_area :content, rows: 3 %>
+    </div>
+    <%= f.submit "更新する" %>
+<% end %>
+
+<%= link_to "戻る", shop_path(@shop) %>

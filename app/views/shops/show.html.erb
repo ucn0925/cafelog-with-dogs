@@ -36,6 +36,7 @@
       </p>
       <p><%= simple_format(h(comment.content)) %></p>
       <% if comment.user == current_user %>
+        <%= link_to "編集", edit_shop_comment_path(@shop, comment), style: "margin-left: 10px;" %>
         <%= link_to "削除", shop_comment_path(@shop, comment), 
               data: { turbo_method: :delete, turbo_confirm: "このコメントを削除しますか？" }, 
               style: "color: red; margin-left: 10px;" %>
