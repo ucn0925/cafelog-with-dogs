@@ -22,3 +22,36 @@
 <%= link_to "編集する", edit_shop_path %>
 <%= link_to "一覧に戻る", shops_path(@shop) %>
 <%= link_to "削除する", shop_path(@shop), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？"} %>
+
+<hr>
+
+<h3>コメント一覧</h3>
+
+<% if @shop.comments.any? %>
+  <% @shop.comments.order(created_at: :desc).each do |comment| %>
+    <div style="margin: 8px 0; border-bottom; 1px solid #ccc, padding-bottom: 5px;">
+      <p>
+        <strong><%= comment.user.name if comment.user %></strong>
+          (<%= comment.created_at.strftime("%Y/%m/%d %H:%M") %>)
+      </p>
+      <p><%= simple_format(h(comment.content)) %></p>
+    </div>
+  <% end %>
+<% else %>
+  <p>まだコメントはありません。</p>
+<% end %>
+
+<h2>コメント</h2>
+
+<% if user_signed_in? %>
+  <%= form_with(model: [@shop, @shop.comments.build], local: true) do |f| %>
+    <div style="margin: 8px 0;">
+      <%= f.text_area :content, row: 3, placeholder: "コメントを入力してください" %>
+    </div>
+      <%= f.submit "投稿する" %>
+  <% end %>
+<% else %>
+  <p>コメントを投稿するにはログインが必要です。</p>
+<% end %>
+
+<hr>

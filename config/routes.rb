@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'users/favorites'
+    get 'users/favorites'
   
   devise_for :users
   
@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :shops, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
     resource :shop_favorite, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy]
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   root "shops#index"

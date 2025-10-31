@@ -6,6 +6,7 @@ class Shop < ApplicationRecord
 
   has_many :shop_favorites, dependent: :destroy
   has_many :favorited_users, through: :shop_favorites, source: :user
+  has_many :comments, dependent: :destroy
 
   validates :name, presence: true
   validates :address, presence: true

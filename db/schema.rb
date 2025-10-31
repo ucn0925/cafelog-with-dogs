@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_10_29_012601) do
+ActiveRecord::Schema[7.1].define(version: 2025_10_31_005942) do
   create_table "blocks", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -23,6 +23,16 @@ ActiveRecord::Schema[7.1].define(version: 2025_10_29_012601) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["block_id"], name: "index_cities_on_block_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "shop_id", null: false
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shop_id"], name: "index_comments_on_shop_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "genres", force: :cascade do |t|
@@ -61,11 +71,14 @@ ActiveRecord::Schema[7.1].define(version: 2025_10_29_012601) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "cities", "blocks"
+  add_foreign_key "comments", "shops"
+  add_foreign_key "comments", "users"
   add_foreign_key "shop_favorites", "shops"
   add_foreign_key "shop_favorites", "users"
   add_foreign_key "shops", "cities"
