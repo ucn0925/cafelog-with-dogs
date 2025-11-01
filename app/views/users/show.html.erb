@@ -31,3 +31,19 @@
 <% else %>
   <p>愛犬情報は未登録です。</p>
 <% end %>
+
+<hr>
+
+<h2>お気に入り店舗一覧</h2>
+
+<% if @favorite_shops.any? %>
+  <ul>
+    <% @favorite_shops.each do |shop| %>
+        <li>
+          <%= link_to shop.name, shop_path(shop) %> (<%= shop.city.name %>)
+        </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>お気に入り登録された店舗はありません。</p>
+<% end %>
