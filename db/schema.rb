@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_10_31_005942) do
+ActiveRecord::Schema[7.1].define(version: 2025_11_01_010452) do
   create_table "blocks", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -33,6 +33,17 @@ ActiveRecord::Schema[7.1].define(version: 2025_10_31_005942) do
     t.datetime "updated_at", null: false
     t.index ["shop_id"], name: "index_comments_on_shop_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "dogs", force: :cascade do |t|
+    t.string "name"
+    t.string "breed"
+    t.integer "size"
+    t.string "integer"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_dogs_on_user_id"
   end
 
   create_table "genres", force: :cascade do |t|
@@ -79,6 +90,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_10_31_005942) do
   add_foreign_key "cities", "blocks"
   add_foreign_key "comments", "shops"
   add_foreign_key "comments", "users"
+  add_foreign_key "dogs", "users"
   add_foreign_key "shop_favorites", "shops"
   add_foreign_key "shop_favorites", "users"
   add_foreign_key "shops", "cities"
