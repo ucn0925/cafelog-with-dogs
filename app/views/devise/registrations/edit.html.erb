@@ -36,6 +36,11 @@
     <%= f.text_area :profile, row: 5 %>
   </div>
 
+  <div class="field">
+    <%= f.label :profile_image, "プロフィール画像" %><br>
+    <%= f.file_field :profile_image, accept: "image/*" %>
+  </div>
+
   <h3>愛犬情報</h3>
 
   <% resource.build_dog if resource.dog.nil? %>

@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :favorite_shops, through: :shop_favorites, source: :shop
   has_many :comments, dependent: :destroy
   has_one :dog, dependent: :destroy
+  has_one_attached :profile_image
 
   accepts_nested_attributes_for :dog
   
