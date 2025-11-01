@@ -4,6 +4,15 @@ class Dog < ApplicationRecord
 
   enum size: { small: 0, medium: 1, large: 2, unknown: 3 }
 
+  def self.size_options
+    {
+      "小型犬" => :small,
+      "中型犬" => :medium,
+      "大型犬" => :large,
+      "不明" => :unknown
+    }
+  end
+
   def size_jp
     case size
       when "small"

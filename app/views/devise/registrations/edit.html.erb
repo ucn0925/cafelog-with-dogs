@@ -31,6 +31,11 @@
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
+  <div class="field">
+    <%= f.label :profile, "自己紹介" %><br>
+    <%= f.text_area :profile, row: 5 %>
+  </div>
+
   <h3>愛犬情報</h3>
 
   <% resource.build_dog if resource.dog.nil? %>
@@ -47,7 +52,7 @@
 
     <div class="field">
       <%= d.label :size, "犬のサイズ" %><br>
-      <%= d.select :size, Dog.sizes.keys.map { |s| [s, s] } %>
+      <%= d.select :size, Dog.size_options %>
     </div>
 
     <div class="field">
