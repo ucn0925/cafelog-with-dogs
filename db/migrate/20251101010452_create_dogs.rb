@@ -4,7 +4,6 @@ class CreateDogs < ActiveRecord::Migration[7.1]
       t.string :name
       t.string :breed
       t.integer :size
-      t.string :integer
       t.references :user, null: false, foreign_key: true
 
       t.timestamps

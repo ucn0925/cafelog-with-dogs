@@ -31,6 +31,31 @@
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
+  <h3>愛犬情報</h3>
+
+  <% resource.build_dog if resource.dog.nil? %>
+  <%= f.fields_for :dog do |d| %>
+    <div class="field">
+      <%= d.label :name, "犬の名前" %><br>
+      <%= d.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= d.label :breed, "犬種" %><br>
+      <%= d.text_field :breed %>
+    </div>
+
+    <div class="field">
+      <%= d.label :size, "犬のサイズ" %><br>
+      <%= d.select :size, Dog.sizes.keys.map { |s| [s, s] } %>
+    </div>
+
+    <div class="field">
+      <%= d.label :dog_image, "犬の写真" %><br>
+      <%= d.file_field :dog_image %>
+    </div>
+  <% end %>
+
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
