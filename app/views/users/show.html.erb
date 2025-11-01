@@ -9,6 +9,12 @@
   <p>プロフィール画像は未設定です</p>
 <% end %>
 
+<% if current_user == @user %>
+  <div style="margin-top: 10px;">
+    <%= link_to "プロフィールを編集する", edit_user_registration_path, class: "btn" %>
+  </div>
+<% end %>
+
 <hr>
 
 <h2>愛犬情報</h2>
