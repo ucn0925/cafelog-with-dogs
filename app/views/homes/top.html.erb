@@ -63,7 +63,7 @@
 
           <% @recent_posts.each do |post| %>
 
-            <div class="review-card">
+            <%= link_to shop_post_path(post.shop, post), class: "review-card" do %>
 
               <!-- 投稿画像-->
               <% if post.images.attached? %>
@@ -81,7 +81,7 @@
               <div class="review-card__body">
 
                 <h5>
-                  <%= link_to post.shop.name, shop_path(post.shop) %>
+                  <%= post.shop.name %>
                 </h5>
 
                 <p class="mb-1">
@@ -94,7 +94,7 @@
 
               </div>
 
-            </div>
+            <% end %>
           <% end %>
         </div>
       
