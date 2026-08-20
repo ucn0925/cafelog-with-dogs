@@ -22,7 +22,7 @@
           </div>
         
           <!-- エリア＆ジャンル（下段） -->
-          <div class="d-flex flex-wrap justify-content-center gap-2 mb-2">
+          <div class="d-flex flex-wrap justify-content-center gap-2 mb-2 search-filters">
 
             <!-- エリア（blockとcity） -->
             <%= select_tag :area_id,
@@ -85,7 +85,7 @@
                 </h5>
 
                 <p class="mb-1">
-                  <%= post.content %>
+                  <%= truncate(post.content, length: 50) %>
                 </p>
 
                 <small>
