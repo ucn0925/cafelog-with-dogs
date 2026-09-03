@@ -1,0 +1,14 @@
+#map {
+  height: 500px;
+  border-radius: 8px;
+}
+
+.map-title {
+  font-size: 2rem;
+}
+
+@media (max-width: 767px) {
+  #map {
+    height: 400px;
+  }
+}
