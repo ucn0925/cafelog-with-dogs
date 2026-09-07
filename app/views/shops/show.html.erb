@@ -34,7 +34,7 @@
       <div class="d-flex justify-content-between align-items-center mb-4">
 
         <!-- 左側：評価・お気に入り・コメント -->
-        <div class="dt-meta-bar d-flex align-items-center gap-4 text-muted small">
+        <div class="dt-meta-bar d-flex align-items-center gap-2 text-muted small">
 
           <% if @average_rating.present? %>
             <div class="d-flex align-items-center">
@@ -114,76 +114,52 @@
 
       <h4 class="h6 fw-bold fs-5 border-start border-4 ps-3 mb-4">犬連れ情報</h4>
 
-      <dl class="row mb-0">
+      <dl class="row mb-0 shop-dog-info">
         <dt class="col-4 dt-label">
           <i class="fa-solid fa-house dt-label-icon me-1"></i>
-          店内同伴OK
+          店内利用
         </dt>
         <dd class="col-8">
           <% if @shop.inside_ok? %>
-            <span class="dt-badge dt-badge-ok">
-              <i class="fa-solid fa-circle-check me-1"></i>
-              可
-            </span>
+            <i class="fa-regular fa-circlw dt-ok"></i>
           <% else %>
-            <span class="dt-badge dt-badge-ng">
-              <i class="fa-solid fa-circle-xmark me-1"></i>
-              不可
-            </span>
+            <i class="fa-solid fa-xmark dt-ng"></i>
           <% end %>
         </dd>
 
         <dt class="col-4 dt-label">
           <i class="fa-solid fa-leaf dt-label-icon me-1"></i>
-          テラスOK
+          テラス利用
         </dt>
         <dd class="col-8">
           <% if @shop.terrace_ok? %>
-            <span class="dt-badge dt-badge-ok">
-              <i class="fa-solid fa-circle-check me-1"></i>
-              可
-            </span>
+            <i class="fa-regular fa-circle dt-ok"></i>
           <% else %>
-            <span class="dt-badge dt-badge-ng">
-              <i class="fa-solid fa-circle-xmark me-1"></i>
-              不可
-            </span> 
+            <i class="fa-solid fa-xmark dt-ng"></i>
           <% end %>
         </dd>
 
         <dt class="col-4 dt-label">
           <i class="fa-solid fa-bone dt-label-icon me-1"></i>
-          犬用メニューあり
+          犬用Menu
         </dt>
         <dd class="col-8">
           <% if @shop.dog_menu? %>
-            <span class="dt-badge dt-badge-ok">
-              <i class="fa-solid fa-circle-check me-1"></i>
-              可
-            </span>
+            <i class="fa-regular fa-circle dt-ok"></i>
           <% else %>
-            <span class="dt-badge dt-badge-ng">
-              <i class="fa-solid fa-circle-xmark me-1"></i>
-              不可
-            </span>
+            <i class="fa-solid fa-xmark dt-ng"></i>
           <% end %>
         </dd>
 
         <dt class="col-4 dt-label">
           <i class="fa-solid fa-link dt-label-icon me-1"></i>
-          リードフックあり
+          リードフック
         </dt>
         <dd class="col-8">
           <% if @shop.lead_hook? %>
-            <span class="dt-badge dt-badge-ok">
-              <i class="fa-solid fa-circle-check me-1"></i>
-              可
-            </span>
+            <i class="fa-regular fa-circle dt-ok"></i>
           <% else %>
-            <span class="dt-badge dt-badge-ng">
-              <i class="fa-solid fa-circle-xmark me-1"></i>
-              不可
-            </span>
+            <i class="fa-solid fa-xmark dt-ng"></i>
           <% end %>
         </dd>
       </dl>

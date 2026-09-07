@@ -9,18 +9,7 @@
     color: var(--dt-muted) !important;
   }
 
-  .text-secondary {
-    color: var(--dt-muted-2) !important;
-  }
-
-  .text-primary {
-    color: var(--dt-main) !important;
-  }
-
-  .text-warning {
-    color: var(--dt-accent) !important;
-  }
-
+  /*　カード */
   .card {
     background: var(--dt-card);
     border: 1px solid var(--dt-border);
@@ -28,24 +17,11 @@
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
   }
 
-  .border-secondary {
-    border-color: var(--dt-border) !important;
-  }
-
   .border-start {
     border-left-color: var(--dt-accent) !important;
   }
 
-  dt {
-    color: var(--dt-muted-2);
-    font-weight: 600;
-  }
-
-  dd {
-    color: var(--dt-text);
-  }
-
-  hr,
+   hr,
   .border,
   .border-top,
   .border-bottom {
@@ -56,7 +32,8 @@
     color: var(--dt-main);
     text-decoration: none;
   }
-
+ 
+  /* リンク */
   a:not(.action-icon):hover {
     color: var(--dt-main-dark);
     text-decoration: underline;
@@ -73,6 +50,11 @@
     text-decoration: underline;
   }
 
+  .stretched-link {
+    text-decoration: none;
+  }
+
+  /* フォーム */
   .form-control,
   .form-select {
     background: var(--dt-card);
@@ -85,10 +67,7 @@
     box-shadow: 0 0 0 0.2rem rgba(184, 169, 149, 0.25);
   }
 
-  .shop-photo-link {
-    display: inline-block;
-  }
-
+  /* 店舗写真 */
   .shop-photo {
     width: 250px;
     height: 250px;
@@ -108,10 +87,7 @@
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
   }
 
-  .stretched-link {
-    text-decoration: none;
-  }
-
+  /* 行きたい */
   .dt-want-count {
     display: inline-flex;
     align-items: center;
@@ -156,12 +132,14 @@
     color: var(--dt-accent);
   }
 
+  /* 店舗情報 */
   .dt-label {
     display: flex;
     align-items: center;
     gap: 0.5rem;
     color: #6b625c;
     font-weight: 590;
+    white-space: nowrap;
   }
 
   .dt-label-icon {
@@ -176,16 +154,29 @@
     font-size: 0.9rem;
   }
 
-  .dt-dog-badge {
-    display: inline-flex;
-    align-items: center;
-    background: var(--dt-card);
-    border: 1px solid var(--dt-border);
-    border-radius: 999px;
-    padding: 4px 10px;
-    font-size: 0.8rem;
+  .dt-ok,
+  .dt-ng {
+    font-size: 0.9rem;
   }
 
+  .dt-ok {
+    color: var(--dt-main);
+  }
+
+  .dt-ng {
+    color: var(--dt-muted-2);
+  }
+
+  dt {
+    color: var(--dt-muted-2);
+    font-weight: 600;
+  }
+
+  dd {
+    color: var(--dt-text);
+  }
+
+  /* 評価 */
   .dt-rating-block {
     display: flex;
     flex-direction: column;
@@ -221,16 +212,7 @@
     width: 50px;
   }
 
-  .dt-star-small {
-    font-size: 0.8rem;
-    color: var(--dt-main);
-  }
-
-  .dt-star-muted-small {
-    font-size: 0.8rem;
-    color: #ddd;
-  }
-
+  /* レビュー */
   .review-meta {
     font-size: 0.85rem;
     color: #666;
@@ -246,6 +228,7 @@
     max-width: 600px;
   }
 
+  /* 編集・アクションアイコン */
   .shop-edit-icon {
     position: absolute;
     top: 16px;
@@ -259,5 +242,28 @@
     right: 10px;
   }
 
+}
 
+@media (max-width: 576px) {
+  .shop-show {
+    dl.row > dt.col-4 {
+      flex: 0 0 40%;
+      max-width: 40%;
+    }
+
+    dl.row > dd.col-8 {
+      flex: 0 0 60%;
+      max-width: 60%;
+    }
+
+    .shop-dog-info > dt.col-4 {
+      flex: 0 0 50% !important;
+      max-width: 50% !important;
+    }
+
+    .shop-dog-info > dd.col-8 {
+      flex: 0 0 50% !important;
+      max-width: 50% !important;
+    }
+  }
 }
