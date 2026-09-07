@@ -1,0 +1,125 @@
+/* フォーム項目 */
+.dt-form-group {
+  margin-bottom: 24px;
+}
+
+.dt-form-label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--dt-text);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.dt-required {
+  margin-left: 3px;
+  color: var(--dt-accent-hover);
+}
+
+/* 入力欄 */
+.dt-form-control {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  border: 1px solid var(--dt-border);
+  border-radius: 8px;
+  background: var(--dt-card);
+  color: var(--dt-text);
+  font-size: 15px;
+}
+
+.dt-form-control:focus {
+  outline: none;
+  border-color: var(--dt-accent);
+  box-shadow: 0 0 0 3px rgba(184, 169, 149, 0.15);
+}
+
+/* セレクト */
+.dt-form-select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  border: 1px solid var(--dt-border);
+  border-radius: 8px;
+  background: var(--dt-card);
+  color: var(--dt-text);
+  font-size: 15px;
+}
+
+/* ファイル選択　*/
+input [type="file"].dt-form-control {
+  padding: 9px;
+}
+
+/* チェックボックス */
+.dt-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.dt-check input {
+  margin: 0;
+  accent-color: var(--dt-accent);
+}
+
+.dt-check label {
+  color: var(--dt-text);
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* エラーメッセージ */
+.shop-form-errors {
+  margin-bottom: 28px;
+  padding: 16px 18px;
+  border: 1px solid var(--dt-border);
+  border-radius: 10px;
+  background: var(--dt-card-hover);
+  color: var(--dt-text);
+}
+
+.shop-form-errors-title {
+  margin: 0 0 8px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.shop-form-errors-list {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 14px;
+}
+
+/* 必須項目の説明 */
+.shop-required-note {
+  margin: 28px 0 0;
+  color: var(--dt-muted);
+  font-size: 13px;
+}
+
+/* 送信ボタン */
+.shop-submit {
+  margin-top: 28px;
+}
+
+.shop-submit .dt-btn {
+  width: 100%
+}
+
+/* フォーム内「一覧に戻る」 */
+.shop-form-back {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.shop-form-back-link {
+  color: var(--dt-muted);
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.shop-form-back-link:hover {
+  color: var(--dt-main);
+}

@@ -1,47 +1,41 @@
-<div class="container my-5">
-  <div class="row justify-content-center">
-    <div class="col-md-8 col-lg-6">
-      <div class="card shadow-sm">
-        <div class="card-body">
+<div class="container shop-edit-page">
+  <div class="shop-edit-card">
          
-         <h1 class="h4 text-center mb-4">店舗情報を編集する</h1>
+    <h1 class="shop-edit-title">店舗情報を編集する</h1>
 
-          <%= render "form", shop: @shop %>
+    <%= render "form", shop: @shop %>
 
-          <hr class="my-4">
+    <hr class="shop-edit-divider">
 
-          <h3 class="h6 mb-3">登録済みの画像</h3>
+    <div class="shop-images-section">
+      <h2 class="shop-edit-section-title">登録済みの画像</h2>
 
-          <% if @shop.images.attached? %>
-            <div class="d-flex flex-wrap gap-3 ">
-              <% @shop.images.each do |image| %>
-                  <div class="position-relative">
-                    <%= image_tag image.variant(resize_to_limit: [200, 200]).processed,
-                                  class: "rounded shadow-sm",
-                                  style: "width: 200px; height: 200px; object-fit: cover;" %>
+      <% if @shop.images.attached? %>
+        <div class="shop-images">
+          <% @shop.images.each do |image| %>
+              <div class="shop-image-item">
+                <%= image_tag image.variant(resize_to_limit: [200, 200]).processed,
+                              class: "shop-edit-image" %>
 
-                    <%= link_to "×", 
-                          destroy_image_shop_path(image.id),
-                          data: { 
-                            turbo_method: :delete, 
-                            turbo_confirm: "この画像を削除してよろしいですか？" 
-                          },
-                          class: "btn btn-sm btn-danger position-absolute top-0 end-0 m-1 rounded-circle",
-                          style: "line-height: 1; padding: 0.25rem 0.5rem;" %>
-                  </div>
-              <% end %>
-            </div>
-          <% else %>
-           <p class="text-muted">登録された画像はありません。</p>
+                <%= link_to "×", 
+                      destroy_image_shop_path(image.id),
+                      data: { 
+                        turbo_method: :delete, 
+                        turbo_confirm: "この画像を削除してよろしいですか？" 
+                      },
+                      class: "shop-image-delete" %>
+              </div>
           <% end %>
-
-          <div class="text-center mt-4">
-            <%= link_to "← 店舗詳細に戻る", shop_path(@shop), class: "text-decoration-none" %>
-          </div>
-
         </div>
-      </div>
+      <% else %>
+        <p class="shop-no-images">登録された画像はありません。</p>
+      <% end %>
     </div>
+
+    <div class="shop-edit-back">
+      <%= link_to "← 店舗詳細に戻る", shop_path(@shop), class: "shop-back-link" %>
+    </div>
+
   </div>
 </div>
 
